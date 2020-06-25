@@ -1,6 +1,6 @@
 {
   "name": "@ukijs/uki-gsheet-db",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An uki.js-based wrapper around google's API, for using Google Sheets as a database",
   "module": "dist/uki-gsheet-db.esm.js",
   "jsnext:main": "dist/uki-gsheet-db.esm.js",

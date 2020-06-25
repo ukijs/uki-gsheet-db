@@ -62,7 +62,7 @@ class CustomView extends uki.View {
     this.d3el.append('button')
       .text('Reset')
       .on('click', async () => {
-        await this.model.removeRows(31, this.model.getRawTable().length);
+        await this.model.removeRows(31, this.model.getRawRows().length);
         await this.model.removeColumn('Deployment');
         await this.model.removeColumn('Errata');
       });
@@ -75,7 +75,7 @@ class CustomView extends uki.View {
     this.d3el.select('.status')
       .text('Current Google Authentication: ' + this.model.status);
     let dataRows = this.d3el.select('.data').selectAll('pre')
-      .data(this.model.getValues() || []);
+      .data(this.model.getRows() || []);
     dataRows.exit().remove();
     const dataRowsEnter = dataRows.enter().append('pre');
     dataRows = dataRows.merge(dataRowsEnter);

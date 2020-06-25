@@ -80,13 +80,13 @@ class AuthSheetModel extends uki.Model {
     this.trigger('statusChanged', status);
   }
   getHeaders () {
-    const rawTable = this.getRawTable();
+    const rawTable = this.getRawRows();
     return rawTable.length > 0 ? rawTable[0] : [];
   }
-  getValues () {
+  getRows () {
     if (!this._valueCache) {
       const headers = this.getHeaders();
-      this._valueCache = this.getRawTable().slice(1).map(row => {
+      this._valueCache = this.getRawRows().slice(1).map(row => {
         const obj = {};
         for (let i = 0; i < headers.length || i < row.length; i++) {
           let header = headers[i] || 'Blank Header';
@@ -102,7 +102,7 @@ class AuthSheetModel extends uki.Model {
     }
     return this._valueCache;
   }
-  getRawTable () {
+  getRawRows () {
     return (this._cache && this._cache.values) || [];
   }
   async addRows (rows) {
